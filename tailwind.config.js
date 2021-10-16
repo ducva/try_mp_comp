@@ -1,6 +1,11 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
+  // mode: 'jit',     // disable this to make `safelist` work
+  purge: {
+    content: ['./src/**/*.{js,ts,jsx,tsx}', './safelist.txt'],
+    options: {
+      safelist: [/^px-.*/]
+    }
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
@@ -8,5 +13,6 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+  ],
 };
